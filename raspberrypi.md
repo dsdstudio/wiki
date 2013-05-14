@@ -36,5 +36,6 @@ Raspberry pi Rev.B + Archlinux Cookbook
 
 ## 참고자료 
 
-	- [https://wiki.archlinux.org/index.php/Samba#Server](https://wiki.archlinux.org/index.php/Samba#Server)
-	- [daemon list, 및 시스템 등록 서비스명](https://wiki.archlinux.org/index.php/Daemons_List)
+
+- [https://wiki.archlinux.org/index.php/Samba#Server](https://wiki.archlinux.org/index.php/Samba#Server)
+- [daemon list, 및 시스템 등록 서비스명](https://wiki.archlinux.org/index.php/Daemons_List)
