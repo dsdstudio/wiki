@@ -26,6 +26,12 @@ UI 를 직접그리는경우 navbar 의 height 를 계산해서 그려야하는�
 	CGSize txtSize = [price sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18.0f]}];
     // do something
 
+## UIView redraw 
+
+drawRect 와 의존성이 있는 view 의 경우 instance variable을 기준으로 다시그리고 싶을때
+
+	 [view setNeedsDisplay];
+     
 
 ## NSCoding Boolean decode
 
@@ -51,3 +57,87 @@ Certificates - APNS for IOS, `apns_xxx.cer`
 ### NodeJs 에서 PUSH 메시지 보내보기
 
 	준비중 
+
+### Cordova + cocoapods 의존성문제 해결하기 
+
+Other Linker Flags에 `$(inherited)` 추가
+![img/ios_cordova_cocoapod.png](img/ios_cordova_cocoapod.png)
+
+### view controller status bar 보이지않도록 처리하기 
+
+ViewController 내부에 아래와 같이 구현하면 됨.
+```
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+```
+
+### NSDictionary Or Array to JSON String
+
+```
+NSData *data = [NSJSONSerialization dataWithJSONObject:responseObject options:0 error:nil];
+NSString *resultStr =[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+```
+
+Object to Dictionary 편법. NSCoding interface 구현하기가 귀찮을때 아래방식으로
+```
+- (NSDictionary *)dictionary {
+	return @{@"key":self.value, ...};
+}
+```
+
+### JSON String to NSDictionary Or Array 
+
+```
+NSString *jsonString = @"{\"ID\":{\"Content\":268,\"type\":\"text\"},\"ContractTemplateID\":{\"Content\":65,\"type\":\"text\"}}";
+NSData *data = [strDict dataUsingEncoding:NSUTF8StringEncoding];
+id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+```
+
+### UIViewController 별 statusbar 설정
+
+
+```
+/**
+ * view controller 별 status bar style 설정
+ */
+- (UIStatusBarStyle) preferredStatusBarStyle {
+    return UIStatusBarStyleBlackTranslucent;
+}
+
+```
+
+### AFNetworking 2.0.x 에서 HTTP 요청 시 request HEADER 설정
+
+requestSerializer 멤버변수에 꽂아주면 된다 :)
+```
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [[manager requestSerializer] setValue:obj.sessionKey forHTTPHeaderField:@"Cookie"];
+```
+
+## Network programming 관련
+
+Little endian to big endian
+```
+	int length = 4;
+	uint32_t convLen = htonl((uint32_t)length);
+```
+
+NSData로 부터 읽을때 endian 변환
+```
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
+	int pktlength = CFSwapInt32BigToHost(*(int*)([data bytes]));
+	.. do something
+}
+```
+[Byte Order Utilities](https://developer.apple.com/library/mac/documentation/CoreFoundation/Reference/CFByteOrderUtils/Reference/reference.html)
+
+
+## Cordova 관련 이슈들
+
+cordova 3.2.0 에서 Plugin group에서 클래스를 새로 생성하는경우 잘못된 헤더가 import된다.
+
+```
+#import <Cordova/Cordova.h> // 잘못됨
+#import <Cordova/CDV.h> // 요형태로 수정필요
+```
