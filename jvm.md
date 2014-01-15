@@ -20,6 +20,9 @@
     uintx PermSize                                  = 21757952        {pd product}        
 	java version "1.7.0_17"
 
+JDK 7 에서 callback 형태로 사용하는경우 로그 깔끔하게보기 
+
+	-XX:-UseSplitVerifier	
 
 ## References 
 

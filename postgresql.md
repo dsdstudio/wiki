@@ -2,7 +2,7 @@ Mysql 에서의 DB & Schema 의 개념이 Postgresql 에서는 조금 다르다.
 
 Mysql db == schema
 
-Postgres에서의 DB : 실제 물리적인 데이터베이스.  
+Postgres에서의 DB : 실제 물리적인 데이터베이스.
 Postgres에서의 schema : 논리적인 Region
 
 

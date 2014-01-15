@@ -104,3 +104,10 @@ Shutting down MySQL.                [  OK  ]
 사용자 추가하기 
 
     mysql> GRANT ALL PRIVILEGES ON schemaname.* TO username@localhost IDENTIFIED BY 'password' WITH GRANT OPTION; 
+
+
+## db dump 
+
+sqlfile -> load to db 
+
+	$ mysql -u<username> -p<password> <dbname> < <sqlfilename> 
