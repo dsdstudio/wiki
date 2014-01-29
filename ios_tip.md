@@ -1,7 +1,7 @@
 ## UIKit frame, bounds 차이
 
 frame은 절대좌표, size  
-bounds 는 상대 좌표, size 
+bounds 는 상대 좌표, size
 
 ## 구버전 SDK 대응코드 작성하기
 
@@ -141,3 +141,40 @@ cordova 3.2.0 에서 Plugin group에서 클래스를 새로 생성하는경우 �
 #import <Cordova/Cordova.h> // 잘못됨
 #import <Cordova/CDV.h> // 요형태로 수정필요
 ```
+
+iOS Archiving 시 `<Cordova/CDV.h>` 못찾는 문제 해결방안 
+
+테스트한 환경 :  Xcode 5, iOS7
+
+이상하게 release build/run, debug build/run 은 되는데 archiving 때만 안되는 케이스를 해결 
+```
+
+cordova -d platform add ios 커맨드로 실행되었을때 기본 설정은 
+"$(BUILT_PRODUCTS_DIR)/libCordova.a" 인데 이 설정은 잘못되었다. 아래와 같이 설정해주어야함!
+
+Build Settings < Search Paths < Header Search Paths 에 아래 항목을 추가한다. 
+"$(OBJROOT)/UninstalledProducts/include"
+
+```
+
+## App Store Link 던지기
+
+[Stackoverflow 답변](http://stackoverflow.com/questions/433907/how-to-link-to-apps-on-the-app-store)
+```
+// 앱 이름으로
+[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms://itunes.com/apps/appname"]];
+// 개발자링크
+[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms://itunes.com/apps/developername"]];
+
+//회사링크
+[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.com/apps/DevelopmentCompanyLLC"]];
+```
+
+## NSUserDefault 이용한 초간단 local스토리지 사용
+
+```
+NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+
+```
+[NSDefaults 참고](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/nsuserdefaults_Class/Reference/Reference.html#//apple_ref/occ/instm/NSUserDefaults/persistentDomainForName:)
