@@ -33,6 +33,14 @@ drawRect 와 의존성이 있는 view 의 경우 instance variable을 기준으�
 	 [view setNeedsDisplay];
      
 
+## 대기모드로 들어가지않도록 설정하기 
+
+``` 
+
+- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
+	[application setIdleTimerDisabled:YES];
+}
+```
 ## NSCoding Boolean decode
 
 ## Push Notification 시 인증서만들기
