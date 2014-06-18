@@ -65,6 +65,21 @@ The kernel still uses the old table. The new table will be used at the next rebo
 	gpu_mem_512=16
 	gpu_mem_256=16
 
+### Network 설정 
+
+	# pacman -Syu initscripts
+    # shutdown -r now 
+    # vi /etc/rc.conf 
+    
+    # NETWORKING 
+    interface=eth0
+	address=192.168.0.110
+	netmask=255.255.255.0
+	broadcast=192.168.0.255
+	gateway=192.168.0.1
+
+	# systemctl disable dhcpcd@eth0; netctl enable eth0
+    # shutdown -r now
 ### exfat mount
 
 	$ pacman -Sy fuse-exfat
