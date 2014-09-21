@@ -55,6 +55,29 @@ Calling ioctl() to re-read partition table.
 Re-reading the partition table failed.: Device or resource busy
 
 The kernel still uses the old table. The new table will be used at the next reboot or after you run partprobe(8) or kpartx(8).
+
+# reboot 
+
+// 재부팅 후 
+
+
+[root@alarmpi ~]# resize2fs /dev/mmcblk0p5
+resize2fs 1.42.9 (28-Dec-2013)
+Filesystem at /dev/mmcblk0p5 is mounted on /; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 1
+The filesystem on /dev/mmcblk0p5 is now 3914496 blocks long.
+
+[root@alarmpi ~]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root        15G  437M   14G   4% /
+devtmpfs         87M     0   87M   0% /dev
+tmpfs            91M     0   91M   0% /dev/shm
+tmpfs            91M  304K   91M   1% /run
+tmpfs            91M     0   91M   0% /sys/fs/cgroup
+tmpfs            91M     0   91M   0% /tmp
+/dev/mmcblk0p1   90M   26M   65M  28% /boot
+tmpfs            19M     0   19M   0% /run/user/0
+[root@alarmpi ~]#
 ```
 ### GPU 메모리 조정 
 
