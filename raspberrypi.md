@@ -79,6 +79,7 @@ tmpfs            91M     0   91M   0% /tmp
 tmpfs            19M     0   19M   0% /run/user/0
 [root@alarmpi ~]#
 ```
+
 ### GPU 메모리 조정 
 
 /boot/config.txt 
@@ -89,6 +90,8 @@ tmpfs            19M     0   19M   0% /run/user/0
 	gpu_mem_256=16
 
 ### Network 설정 
+
+static ip 설정
 
 	# pacman -Syu initscripts
     # shutdown -r now 
@@ -103,10 +106,6 @@ tmpfs            19M     0   19M   0% /run/user/0
 
 	# systemctl disable dhcpcd@eth0; netctl enable eth0
     # shutdown -r now
-### exfat mount
-
-	$ pacman -Sy fuse-exfat
-	$ mount.exfat-fuse /dev/sdXn /mnt/exfat
 
 ### Samba 설정 
 
