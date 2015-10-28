@@ -43,3 +43,12 @@ repository로 부터 최신버전으로 fetch & merge 시 충돌이나는경우 
 
 	git remote set-url 원격저장소명 원격저장소url 
 	 git remote set-url origin protocol://url
+
+## git merge dry run 
+
+	$ git merge --no-commit --no-ff $branch
+
+	$ git merge --abort
+
+
+http://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option
