@@ -52,3 +52,14 @@ repository로 부터 최신버전으로 fetch & merge 시 충돌이나는경우 
 
 
 http://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option
+
+
+## git merge 충돌났을때 
+
+충돌난 파일들중 remote 에 올라온것을 기준으로 엎어치기 할때 
+
+	$ git checkout --theirs PATH/FILE 
+
+충돌난 파일들중 내가 수정한 커밋을 기준으로 엎어치기 할때 
+
+	$ git checkout --ours PATH/FILE 
