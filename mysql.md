@@ -111,3 +111,27 @@ Shutting down MySQL.                [  OK  ]
 sqlfile -> load to db 
 
 	$ mysql -u<username> -p<password> <dbname> < <sqlfilename> 
+
+## 테이블의 datadir 을 다른곳으로 해서 만들기 
+
+
+	mysql> USE test;
+	Database changed
+
+	mysql> SHOW VARIABLES LIKE 'innodb_file_per_table';
+	+-----------------------+-------+
+	| Variable_name         | Value |
+	+-----------------------+-------+
+	| innodb_file_per_table | ON    |
+	+-----------------------+-------+
+	1 row in set (0.00 sec)
+
+	mysql> CREATE TABLE t1 (c1 INT PRIMARY KEY) DATA DIRECTORY = '/alternative/directory';
+	Query OK, 0 rows affected (0.03 sec)
+
+	bhkim@ubuntu:~/alternative/directory/test$ ls
+	t1.ibd
+
+	bhkim@ubuntu:~/mysql/data/test$ ls
+	db.opt  t1.frm  t1.isl
+
