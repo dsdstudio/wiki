@@ -135,3 +135,18 @@ sqlfile -> load to db
 	bhkim@ubuntu:~/mysql/data/test$ ls
 	db.opt  t1.frm  t1.isl
 
+
+## mysql 5.7 업그레이드시 hibernate 관련 에러 
+	
+	org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Table 'performance_schema.session_variables' doesn't exist)
+		at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:80)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:630)
+
+내부적으로 사용하고 있는 performance_schema가 갱신되지않아 생기는 문제이다 
+
+아래 명령어로 복구가 가능 
+
+나의 경우는 osx를 사용중이므로 `brew services`로 재시작, OS별 daemon 관리자는 다르므로 플랫폼별로 알아서 ^^;
+
+	# mysql_upgrade -uroot -p 
+	# brew services restart mysql 
