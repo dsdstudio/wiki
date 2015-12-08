@@ -63,3 +63,8 @@ http://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option
 충돌난 파일들중 내가 수정한 커밋을 기준으로 엎어치기 할때 
 
 	$ git checkout --ours PATH/FILE 
+
+## git blame, 어떤라인을 누가 수정했는지 보려고 할때 
+
+	$ git blame /path/to/file -L 292,+5
+
