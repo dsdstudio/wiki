@@ -71,3 +71,8 @@ http://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option
 ## git remote branch 로컬 브랜치와 동기화하기 
 
 	$ git fetch --all --prune
+
+## git 커밋의 변경내역 조회하기 
+
+	$ git show <commit-hash>
+	$ git log -p <commit-hash>
