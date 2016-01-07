@@ -76,3 +76,8 @@ http://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option
 
 	$ git show <commit-hash>
 	$ git log -p <commit-hash>
+
+
+## git 특정 파일에 대한 변경내역 살펴보기
+
+	$ git log --name-status <filepath>
