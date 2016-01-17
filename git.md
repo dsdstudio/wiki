@@ -37,6 +37,11 @@ repository로 부터 최신버전으로 fetch & merge 시 충돌이나는경우 
 	git push 원격저장소명 로컬브랜치명:원격브랜치명
 	
 	$ git push origin branchname
+
+## remote branch 삭제하기
+
+	$ git branch -d <branchname>
+	$ git push origin --delete <branchname>
 	
 	
 ## remote uri 변경하기 
