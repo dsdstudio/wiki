@@ -49,3 +49,8 @@ C-x 1 (모든 창 닫기)
 C-s
 ```
 
+### 내가 설치한 플러그인들
+
+- https://github.com/n3mo/cyberpunk-theme.el (colortheme)
+- [magit](http://magit.vc/)
+- cask pack manager
