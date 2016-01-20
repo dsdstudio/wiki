@@ -9,8 +9,22 @@
 http://www.emacswiki.org/emacs/EmacsAsDaemon
 
 
+emacs 서버 데몬 띄우기 
+
 ```
 emacs --daemon
+```
+
+클라이언트로 붙어서 사용하기
+
+```
+emacsclient -nw <filename>
+```
+
+emacs daemon 죽이기
+
+```
+emacsclient -e '(kill-emacs)'
 ```
 
 
