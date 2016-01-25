@@ -63,6 +63,14 @@ C-x 1 (모든 창 닫기)
 C-s
 ```
 
+#### 특정 라인으로 가기 
+
+```
+M-g g
+GotoLine
+```
+
+
 ### 내가 설치한 플러그인들
 
 - https://github.com/n3mo/cyberpunk-theme.el (colortheme)
