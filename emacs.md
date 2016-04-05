@@ -21,6 +21,10 @@ emacs --daemon
 emacsclient -nw <filename>
 ```
 
+GUI client 로 붙어서 사용하기
+```
+emacsclient -c <filename>
+```
 emacs daemon 죽이기
 
 ```
