@@ -86,6 +86,18 @@ C-_ (리두)
 C-u TAB
 ```
 
+#### 기본 디렉토리 설정하기 
+
+```
+M-x cd
+```
+
+#### 전체 선택 
+
+```
+C-x C-p
+```
+
 ### 내가 설치한 플러그인들
 
 - https://github.com/n3mo/cyberpunk-theme.el (colortheme)
