@@ -1,4 +1,42 @@
-## Emacs 관련 정보 정리 :)
+# Emacs 관련 정보 정리 :)
+
+이문서는 제가 emacs를 사용하면서 까먹지않기 위해 정리해놓는 문서입니다. 
+참고로 제 PC환경은 MacOSX el cappitan 이며, homebrew를 사용합니다. 
+
+emacs를 사용할때 원하는 기능적인 목표 
+
+- emacs에서 textmate나 alpred 같은 fuzzy-finder 기능이 제공됐으면 좋겠다. 플러그인이던 뭐던, 
+- 요즘 자주 사용하고 있는 언어는 javascript인데 emacs에서 제대로 indent, spacebar들을 컨트롤 가능했으면 좋겠다. 
+- git 환경도 emacs에 통합시키고 싶다.
+- find files in project 
+
+
+emacs를 사용할때 내가 할수있었으면 하는 작업들 
+
+- 세로 편집 
+- 화면 쪼개기, 화면 크기조정 
+
+
+## 00. 설치
+
+homebrew를 이용해서 설치
+
+```
+ $ brew install --with-cocoa --srgb emacs
+```
+
+- `--with-cocoa` 옵션은 gui용 emac를 같이 설치하기위해서 필요한 옵션입니다. 
+- `--srgb` 옵션은 GUI환경에서 sRGB 컬러를 지원하기 위해서 필요합니다.
+
+설치가 끝나고나면 gui 실행용 바이너리를 링크합니다.
+
+```
+ $ brew linkapps emacs
+```
+
+
+## 01. 환경설정
+
 
 ### emacs 기본 설정 파일 경로 
 
