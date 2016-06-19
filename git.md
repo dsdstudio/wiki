@@ -38,6 +38,10 @@ repository로 부터 최신버전으로 fetch & merge 시 충돌이나는경우 
 	
 	$ git push origin branchname
 
+## push 시 기본 upstream branch 지정하기 
+
+	$ git push -u origin master 
+
 ## remote branch 삭제하기
 
 	$ git branch -d <branchname>
