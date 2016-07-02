@@ -142,4 +142,4 @@ C-x C-p
 - https://github.com/n3mo/cyberpunk-theme.el (colortheme)
 - [magit](http://magit.vc/)
 - [helm fuzzy finder](https://emacs-helm.github.io/helm/)
-- cask pack manager
+- [디렉토리 기준으로 검색가능한 기능을 제공하는 fiplr](https://github.com/grizzl/fiplr)
