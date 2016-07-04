@@ -46,6 +46,18 @@ homebrew를 이용해서 설치
 
 http://www.emacswiki.org/emacs/EmacsAsDaemon
 
+### cider 설정을 위한 project.clj 내용 추가
+
+
+project.clj 
+
+```
+:plugins [[cider/cider-nrepl "0.12.0"]]
+```
+
+상단 내용이 추가되어있어야 cider 에서 테스트 실행시 우아하게 연결이 된다
+
+
 
 emacs 서버 데몬 띄우기 
 
