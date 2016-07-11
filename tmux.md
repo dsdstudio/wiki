@@ -63,3 +63,13 @@ Tmux 연결 끊기
 	복구도 마찬가지방법으로 가능 
 
 
+### tmux powerline 설정
+
+```
+$ pip install --user psutil powerline-status
+```
+
+#### references 
+
+- [powerline installation guide](https://powerline.readthedocs.io/en/latest/installation.html#pip-installation)
+
