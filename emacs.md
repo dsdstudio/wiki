@@ -147,6 +147,21 @@ M-x cd
 
 ```
 C-x C-p
+C-x h
+```
+
+#### next buffer prev buffer
+
+```
+C-x <left>
+C-x <right>
+```
+
+#### tab to space 
+
+```
+C-x h // 전체선택 
+M-x untabify // tab을 space로 
 ```
 
 ### 내가 설치한 플러그인들
@@ -155,3 +170,8 @@ C-x C-p
 - [magit](http://magit.vc/)
 - [helm fuzzy finder](https://emacs-helm.github.io/helm/)
 - [디렉토리 기준으로 검색가능한 기능을 제공하는 fiplr](https://github.com/grizzl/fiplr)
+
+
+### 참고문서 
+
+- [tab을 space 로 변경하기](https://mdk.fr/blog/emacs-replace-tabs-with-spaces.html) 버퍼 전체를 선택하고, untabify 처리
