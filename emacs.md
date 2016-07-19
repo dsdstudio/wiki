@@ -164,6 +164,12 @@ C-x h // 전체선택
 M-x untabify // tab을 space로 
 ```
 
+##### 폰트 사이즈 조절 
+
+```
+C-x C-+
+C-x C--
+```
 ### 내가 설치한 플러그인들
 
 - https://github.com/n3mo/cyberpunk-theme.el (colortheme)
