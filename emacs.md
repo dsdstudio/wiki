@@ -164,12 +164,24 @@ C-x h // 전체선택
 M-x untabify // tab을 space로 
 ```
 
-##### 폰트 사이즈 조절 
+#### 폰트 사이즈 조절 
 
 ```
 C-x C-+
 C-x C--
 ```
+
+#### block selection, emacs에서는 mark라고 한다. 
+
+```
+C-SPC
+C-@
+SHIFT+MOVE-CURSOR <--- 이건 별도 설정이 필요하다
+```
+
+- https://www.gnu.org/software/emacs/manual/html_node/emacs/Setting-Mark.html#Setting-Mark 
+
+
 ### 내가 설치한 플러그인들
 
 - https://github.com/n3mo/cyberpunk-theme.el (colortheme)
