@@ -30,9 +30,17 @@ node {
 
 ## intellij 에서 작업시 
 
-intellij 최신버전에서는 directory based 형태로 설정파일이 변경되었다 `${projectDir}/.idea`   
-아래 디렉토리를 열어보면 다음과 같은 파일들이 있는데 . modules.xml , workspaces.xml 은 현재 gradle idea plugin 에서 customizing이 가능하나 compiler.xml 에는 대응되는 클래스가 없다. 그래서 xml을 직접 생성하여 복사하는형태로 작업을 해야하지않을까.. 하는 생각이.. 
 
+최근에 사용되는 도구들을 유심히 살펴보면 전처리기가 상당히 많이 도입되었음을 알 수 있다. 
+지금 현재 사용하는 annotation processor만 하더라도 lombok, hibernate jpa static model generator, QueryDSL 정도이다. 
+
+annotation processor 를 구동하려면 별도의 gradle plugin 을 설치해야하는데, gradle task로 직접 돌릴때는 상관이 없으나, 개발자가 사용하는 IDE에서 돌릴때는 완전히 다른 환경에서 구동이 되게된다. 즉 환경의 불일치가 일어나게되므로 IDE내부에서 초기 세팅시 개발자가 직접 설정을 해야하는 문제가 있다. 
+
+이를 자동화해주기위해서 gradle은  `gradle idea` 혹은 `gradle eclipse` 와 같은 task들을 제공한다.
+
+intellij 의 경우에는 `.idea/compiler.xml`을 수정하여 `annotation process 활성화` 및 generated source 경로를 지정할수 있는데 gradle에서 제공하는 API로는 해당 `compiler.xml`을 수정할수 있는 방법이 없다. 
+
+그렇다면 결국 `gradle idea` task 수행후 compiler.xml 을 직접 generate 한뒤 복사하는형태로 구현하면 이 문제를 해결할수 있지 않을까 ?
 
 ```
 $ ls -l .idea
