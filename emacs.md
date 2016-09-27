@@ -170,6 +170,14 @@ M-x untabify // tab을 space로
 C-x C-+
 C-x C--
 ```
+
+##### 외부프로그램 열기 
+```
+M-! 
+
+M-x shell-command RET
+```
+
 ### 내가 설치한 플러그인들
 
 - https://github.com/n3mo/cyberpunk-theme.el (colortheme)
