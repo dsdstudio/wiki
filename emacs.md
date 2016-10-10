@@ -188,6 +188,29 @@ SHIFT+MOVE-CURSOR <--- 이건 별도 설정이 필요하다
 
 - https://www.gnu.org/software/emacs/manual/html_node/emacs/Setting-Mark.html#Setting-Mark 
 
+#### 세로 편집 
+
+보통 rectangle command를 사용한다. 
+
+kill-rectangle (선택한 영역을 column 단위로 지우기)
+
+```
+C-x r k
+```
+
+replace-rectangle (선택영역을 내가 입력한 문자열로 replace)
+
+```
+C-x r t
+```
+
+paste-rectangle (선택영역을 다른 문자열로 붙여넣기)
+
+```
+C-x r y
+```
+
+
 ### 내가 설치한 플러그인들
 
 - https://github.com/n3mo/cyberpunk-theme.el (colortheme)
