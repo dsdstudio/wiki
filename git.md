@@ -90,3 +90,23 @@ http://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option
 ## git 특정 파일에 대한 변경내역 살펴보기
 
 	$ git log --name-status <filepath>
+    
+## 다른 브랜치로 스위칭하지않고 fetch - merging 
+
+
+`issue00` branch 에 master를 머지해야하는경우 아래와 같이하면 `master` 브랜치로 스위칭하지않고 즉시 해당브랜치에 머지할수 있다. 
+
+```
+// 현재 브랜치는 issue00 브랜치
+$ git fetch origin master:master
+remote: Counting objects: 754, done.
+remote: Compressing objects: 100% (350/350), done.
+remote: Total 754 (delta 224), reused 42 (delta 42), pack-reused 274
+Receiving objects: 100% (754/754), 2.51 MiB | 65.00 KiB/s, done.
+Resolving deltas: 100% (325/325), completed with 12 local objects.
+From oss.navercorp.com:NTree2/NTree2-Web
+   4ae76fc..487f506  master     -> master
+   4ae76fc..487f506  master     -> origin/master
+
+$ git merge master
+```
