@@ -25,5 +25,5 @@ ng-style을 이용해서 좀더 구조적인 표현식으로 교체한다.
 
 -> 
 
-<col ng-attr-width="width" /> 
+<col ng-attr-width="{{width}}" /> 
 ```
