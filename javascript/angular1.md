@@ -56,3 +56,4 @@ TO-BE
 ```html
 <span ng-bind="data.title"></span>
 ```
+앞단에 gateway 서버로 nginx / apache를 두고 phantomjs 서버를 하나 띄워둔뒤 특정 agent string(google bot) 인경우에는 phantomjs가 렌더링된 html을 리턴하는 형태로 구성하면 해결 가능하다
