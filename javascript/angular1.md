@@ -40,3 +40,19 @@ $http.get('/api/user/list').then(function(res) {
   // do something. 프로그레스를 닫는다던가.. 
 })
 ```
+
+### 02. 검색엔진 최적화
+
+검색엔진은 가차없다 -ㅅ-;; 아래 angular expression 으로 구성된 부분을 내용으로 인지하고 봇이 바로 긁어가버린다
+
+AS-IS 
+
+```html
+<span> {{data.title}} </span>
+```
+
+TO-BE 
+
+```html
+<span ng-bind="data.title"></span>
+```
