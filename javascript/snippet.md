@@ -52,7 +52,7 @@ fn.unsubscribeByKey = function(k) {
         
   
 
-var eq = new EventQueue();
+var eq = new EventBus();
  
 eq.addLast('ADDED', function(v) {
   console.log('ADDED LAST', v); 
