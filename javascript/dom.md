@@ -4,7 +4,7 @@
 
 보통 `closet()`을 이용해서많이들 구현하는데 오늘 문서를 찾아보니 `contains`함수를 찾게되었다. 이 함수의 장점은 무려 IE5+ 부터 지원된다는것..
 
-```
+```javascript
 var selectWrap = document.getElementsByClassName('select-wrap')[0];
 var selectList = document.getElementsByClassName('select-list')[0];
 var input = document.getElementsByTagName('input');
