@@ -1,5 +1,34 @@
 ## clojurescript cookbook 
 
+### map에 접근하기에는 string이 키인 맵보다 keyword인 맵이 좀더 깔끔하다. 
+
+왜 그런지는 아래 예제를 보자 
+
+```clojure
+(def user {"name" "borong" "age" 20})
+
+(get user "name") ; borong 
+```
+
+clojure 에서의 keyword는 그 자체로 함수가 될 수 있다. map 의 value에 접근할때 더 우아한 해법을 제공함.. 
+```clojure
+(def user {:name "borong" :age 20})
+
+(:name user) ; borong 
+```
+
+이걸 보다보니 한가지 의문점이 생겼다. string을 키로쓰는 맵 자체를 keyword 키를 사용하는 맵으로 변환해서 쓰면 좀더 유용하지않을까 ?
+
+http://stackoverflow.com/questions/9406156/clojure-convert-hash-maps-key-strings-to-keywords
+
+```clojure
+(defn to-keyword-map [m]
+  (into {}
+    (for [[k v] m]
+      [(keyword k) v])))
+```
+
+
 ### 짧은 함수는 리더 매크로를 이용하자 
 
 일반적으로 이벤트 리스너의 경우 아래와 같은형태로 많이들 작성하게되는데.. 
