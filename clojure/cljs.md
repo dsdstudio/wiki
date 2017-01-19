@@ -1,5 +1,22 @@
 ## clojurescript cookbook 
 
+### 짧은 함수는 리더 매크로를 이용하자 
+
+일반적으로 이벤트 리스너의 경우 아래와 같은형태로 많이들 작성하게되는데.. 
+
+```clojure
+[:button {:on-click (fn [e] (js/console.log (cljs->js e)))}]
+```
+
+함수내용이 복잡하지않고 1줄내로 끝난다면 리더 매크로 사용하는게 더 나아보인다.  내가 생각하기에
+
+```clojure
+[:button {:on-click #(js/console.log (cljs->js %1))}]
+```
+
+리더매크로는 `#()` 의 형태로 생겼는데.. 괄호 내부에는 S-Expression이 올수 있다. 함수의 인자는 `%1` `%2` ... 와 같은형태로 받을수 있음. 퍼센트 문자 뒤에 숫자는 인자의 인덱스를 의미한다.
+
+
 ### clojure에서의 자료구조를 js 형태로 변환하기 
 
 ```clojure
