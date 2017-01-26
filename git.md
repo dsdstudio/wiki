@@ -46,6 +46,10 @@ repository로 부터 최신버전으로 fetch & merge 시 충돌이나는경우 
 
 	$ git branch -d <branchname>
 	$ git push origin --delete <branchname>
+
+	혹은 
+
+	$ git push origin :<remove-target-branch-name>
 	
 	
 ## remote uri 변경하기 
