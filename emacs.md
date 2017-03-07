@@ -210,6 +210,15 @@ paste-rectangle (선택영역을 다른 문자열로 붙여넣기)
 C-x r y
 ```
 
+#### 약어 자동 완성 
+
+```
+thisIsVeryVery...
+
+thisIs <- M-.
+
+M-/
+```
 
 ### 내가 설치한 플러그인들
 
