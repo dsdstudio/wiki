@@ -220,6 +220,13 @@ thisIs <- M-.
 M-/
 ```
 
+### 주석 처리 
+
+```
+M-;
+```
+
+
 ### 내가 설치한 플러그인들
 
 - https://github.com/n3mo/cyberpunk-theme.el (colortheme)
