@@ -1,0 +1,67 @@
+
+
+* 코틀린 사용하면서 괜찮았던 이디엄들 정리 
+
+
+** 복잡한 조건식 -> 내부 DSL로 의도를 드러낼수있도록 조정
+#+BEGIN_SRC kotlin 
+val isDefaultConfig = (defaultConfig.deptCd == inventDTO.deptCd)
+                .and(defaultConfig.useId == inventDTO.useId)
+                .and(inventDTO.etcContent.isEmpty()).and(inventDTO.itemNm.isEmpty())
+#+END_SRC
+
+
+
+** 복잡한 레거시 response를 간결한 DTO선언 및 쉬운 사용 
+
+예를 들어 아래와 같은 3depth 형태의 자료구조라고 생각을 해보자.. 
+이것을 serialization시킬때 사용할 DTO를 자바로 짠다고 하면 어우.. -ㅅ-;; 
+
+#+BEGIN_SRC javascript
+{
+  root:{
+    list:{
+      row:[
+        {....}
+      ]
+    }
+  }
+}
+#+END_SRC
+
+kotlin object + data class 로 복잡한 구조의 Response도 간결하게 
+
+#+BEGIN_SRC kotlin
+  object CodeValueResponse {
+      data class Result(val root: T0)
+      data class T0(val list: T1)
+      data class T1(val row: List<Map<String, String>>)
+  }
+  val (count, stats, data) = r.root
+#+END_SRC
+
+kotlin data class는 기본적으로 이뮤터블(변경불가) 이며 편의를 위한 copy함수를 제공한다.
+
+copy함수 사용시 constructor argument순서대로 선언하거나, 필요한경우 라벨링을 사용하자. 
+#+BEGIN_SRC kotlin 
+this.inventDTO = this.inventDTO.copy(
+                        investYear = o.getString("investYear"),
+                        investSeq = o.getString("investSeq"),
+                        buildingCd = o.getString("buildingCd"),
+                        floorCd = o.getString("floorCd"),
+                        roomCd = o.getString("roomCd"),
+                        deptCd = o.getString("deptCd"),
+                        useId = o.getString("useId"))
+#+END_SRC
+
+** Java에서의 Static method Call 은 compainon Object를 이용하자 
+
+#+BEGIN_SRC kotlin 
+class MemesView {
+    companion object {
+        fun toast(ctx: Context, message: String, duration: Int): Toast = Toast.makeText(ctx, message, duration).apply {
+            setGravity(Gravity.TOP, 0, 220)
+        }
+    }
+}
+#+END_SRC
