@@ -226,6 +226,13 @@ M-/
 M-;
 ```
 
+### ORGMODE
+
+babel source block 자동 입력 
+```
+<s TAB
+```
+
 
 ### 내가 설치한 플러그인들
 
