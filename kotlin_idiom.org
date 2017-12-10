@@ -40,7 +40,7 @@ kotlin object + data class 로 복잡한 구조의 Response도 간결하게
   val (count, stats, data) = r.root
 #+END_SRC
 
-kotlin data class는 기본적으로 이뮤터블(변경불가) 이며 편의를 위한 copy함수를 제공한다.
+kotlin data class는 편의를 위한 copy함수를 제공한다.
 
 copy함수 사용시 constructor argument순서대로 선언하거나, 필요한경우 라벨링을 사용하자. 
 #+BEGIN_SRC kotlin 
