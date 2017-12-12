@@ -1,0 +1,44 @@
+* clojure 에서 유용한 라이브러리들 정리 
+
+** environ 
+
+clojure project에서 환경변수들을 관리하기위한 라이브러리입니다. 
+
+
+
+https://github.com/weavejester/environ 
+
+*** 00 설치 
+
+leiningen 사용시 project.clj 의존성 및 플러그인 설정
+
+#+BEGIN_SRC clojure
+  :dependencies [[environ "1.1.0"]]
+  :plugins [[lein-environ "1.1.0"]]
+  :profiles {:dev  {:env {:database-url "jdbc:postgresql://localhost/dev"}}
+             :test {:env {:database-url "jdbc:postgresql://localhost/test"}}}
+#+END_SRC
+
+
+실제로 환경변수를 사용해야하는쪽에서의 코드입니다. 
+#+BEGIN_SRC clojure
+(require '[environ.core :refer [env]])
+
+(def database-url
+  (env :database-url))
+#+END_SRC
+
+
+jar 패키징후 실제로 instance를 구동할때 환경변수를 참조하거나 java properties 를 참조하도록 설정할수 있습니다. 
+
+환경변수 참조방식 - 사실상 lowercase -> snakecase로 매칭되는 구조입니다. `:database-url` -> `DATABASE_URL` 
+
+#+BEGIN_SRC shell
+DATABASE_URL=jdbc:postgresql://localhost/prod java -jar standalone.jar
+#+END_SRC
+
+java property 전달방식으로도 환경변수를 설정할수 있습니다. 
+#+BEGIN_SRC shell
+java -Ddatabase.url=jdbc:postgresql://localhost/prod -jar standalone.jar
+#+END_SRC
+
