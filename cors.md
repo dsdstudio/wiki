@@ -1,4 +1,4 @@
-##CORS 
+## CORS 
 
 Cross Origin Resource Sharing 
 다른 이기종 의 도메인간 통신을 위한 규약이다.
