@@ -116,3 +116,17 @@ TestActivity.kt
   }
 #+END_SRC
 
+
+** kotlin data class를 android parcelable로 
+
+data class를 사용하면 되고 @Parcelize annotation 을 제공하고있음
+java에서처럼 write / read interface 상속이 딱히 필요하지않다. 
+#+BEGIN_SRC kotlin
+
+  @Parcelize
+  @SuppressLint("ParcelCreator")
+  data class UIState(
+          val roomName: String = "",
+          val deptNm: String = "",
+          val useNm: String = "") : Parcelable
+#+END_SRC
