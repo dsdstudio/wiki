@@ -1,5 +1,43 @@
 * IOS 개발중 내용 정리 
 
+** <2018-01-16 화>
+
+*** Core Bluetooth apple pencil detect 
+
+선행작업 - framework - Core Bluetooth 미리 추가해둘것
+
+특이한점으로 apple pencil uuid가 "180A" 라는 문자로 초기화되어있다는.. 
+
+#+BEGIN_SRC swift 
+  import CoreBluetooth
+  import UIKit
+
+  class SampleController: UIViewController {
+      var centralManager:CBCentralManager? = nil
+      override func viewDidLoad() {
+          self.centralManager = CBCentralManager.init(delegate: self, queue: nil)
+          self.centralManager?.scanForPeripherals(withServices: nil, options: nil)
+      }
+  }
+
+  extension SampleController: CBCentralManagerDelegate {
+      func centralManagerDidUpdateState(_ central: CBCentralManager) {
+          let applePencilConnected = central.state == .poweredOn && self.centralManager?.retrieveConnectedPeripherals(withServices: [CBUUID.init(string: "180A")])
+            .first(where: { $0.name == "Apple Pencil"}) != nil
+          print("apple pencil => \(applePencilConnected)")
+      }
+
+      func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+      }
+      func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+      }
+      func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+          print("BLE 찾았넹.. \(String(describing: peripheral.name))")
+      }
+  }
+
+#+END_SRC
+
 ** <2018-01-12 금>
 
 *** CGAffineTransform -> CATransform3D 변환 
