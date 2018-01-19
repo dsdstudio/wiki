@@ -1,5 +1,31 @@
 * IOS 개발중 내용 정리 
 
+** <2018-01-19 금> 
+
+*** 지문 / pin code 인증처리 
+
+LocalAuthentication framework 추가 
+
+#+BEGIN_SRC swift
+  import LocalAuthentication
+
+  func viewDidLoad() {
+      let c = LAContext()
+      var authError: NSError?
+      func executePolicy(_ v:LAPolicy)  {
+          c.evaluatePolicy(v, localizedReason: "호호호 인증해", reply: { (success, e) in
+                                                                    print("\(success) \(String(describing: e))")
+                                                                })
+      }
+      if c.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
+          executePolicy(.deviceOwnerAuthenticationWithBiometrics)
+      } else if c.canEvaluatePolicy(.deviceOwnerAuthentication, error: &authError) {
+          executePolicy(.deviceOwnerAuthentication)
+      }
+
+  }
+#+END_SRC
+
 ** <2018-01-16 화>
 
 *** Core Bluetooth apple pencil detect 
