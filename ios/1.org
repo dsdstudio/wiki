@@ -1,5 +1,26 @@
 * IOS 개발중 내용 정리 
 
+
+** <2018-01-31 수> 
+
+Design document 
+*** ScrollView zooming and  Paging 
+
+- 줌 대상뷰는 모든 페이지를 담고 있는 컨테이너뷰라야한다. 
+- container view 의 scale 이 변한뒤 scrollview 의 panning gesture는 미세하게 다뤄져야한다. 
+  - panning 시 상하좌우경계로 못넘어가도록 방어코드 처리 
+  - dragging 시에는 상하경계로 방어코드처리 
+    - 단, 좌우로는 width의 10%(변할수 있음) dragging 이 가능하도록 
+    - 이 행동을 보고 페이지이동 처리를 한다. 
+
+여러가지 테스트를 거친뒤 결론이 났는데.. 
+
+- private api gesture recognizer자체는 손을 안대는 편이 낫다. 왜냐하면 기본 페이징 동작과, 스크롤 액션 자체가 그 recognizer에 들어있기때문.. -ㅅ-; 
+- 결국 Nested scrollview를 이용하면 아주 깔끔하게 해결이 된다.
+  - https://developer.apple.com/library/content/documentation/WindowsViews/Conceptual/UIScrollView_pg/NestedScrollViews/NestedScrollViews.html#//apple_ref/doc/uid/TP40008179-CH7-SW3
+  - 문서는 한참봤는데 왜 이게 눈에 안들어왔지.. 
+
+
 ** <2018-01-19 금> 
 
 *** 지문 / pin code 인증처리 
