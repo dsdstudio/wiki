@@ -1,6 +1,15 @@
 * IOS 개발중 내용 정리 
 
 
+** <2018-02-19 월>
+
+IOS Simulator에서 아래와 같은 오류가 나온다면 
+
+Pseudo Terminal Setup Error 
+- https://stackoverflow.com/questions/48128652/pseudo-terminal-setup-error-when-running-ios-simulator
+
+그저 xcode를 종료하고 나면 나아진다. 
+
 ** <2018-01-31 수> 
 
 Design document 
