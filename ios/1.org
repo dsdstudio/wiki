@@ -1,5 +1,12 @@
 * IOS 개발중 내용 정리 
 
+** <2018-02-25 일>
+
+Autolayout constraint 코드로 직접 적용할때 유의할사항 
+
+- addSubview() 이후에 constraint를 걸도록 하자 
+- 대상뷰의 translatesAutoresizingMaskIntoConstraints 속성을 false로 세팅한뒤 constraint를 걸어야 제대로 동작한다. 
+- 당연한 이야기지만 x축중앙, y축중앙정렬로 세팅하려는경우에는 width, height constraint를 설정해야 제대로 동작함
 
 ** <2018-02-19 월>
 
