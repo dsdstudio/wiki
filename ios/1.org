@@ -1,4 +1,17 @@
 * IOS 개발중 내용 정리 
+** 2018-03-22
+
+popover를 개발할때 segue에서 reference storyboard 를 참조시키는경우 참조된 storyboard에서 view 크기를 내가 원하는 형태로 조정해놓을때 
+아래와 같은 설정을 사용한다. 
+UIViewController 선택후 SimulatedSize를 freeform으로 설정한뒤 원하는 크기로 세팅하면 된다. 
+
+https://stackoverflow.com/questions/17871614/how-to-change-the-size-of-a-view-controller-on-the-storyboard-for-editing-purpos
+   
+
+
+** <2018-03-02 금>
+
+- Stroke 점 갯수 줄이는 알고리즘 https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm
 
 ** <2018-02-25 일>
 
