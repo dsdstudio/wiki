@@ -14,6 +14,27 @@ PDFBackedView
 - 테스트결과 custom annotation 으로 그린 데이터도 잘 저장이 됨
 - text 의 경우 수정이 되야되는데 이건 좀더 검토가 필요할듯
 
+collectionview drag and drop 올바르게 이동하기 
+
+#+BEGIN_SRC swift
+  func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+      guard let destinationIndexPath = coordinator.destinationIndexPath,
+            let dragItem = coordinator.items.first?.dragItem,
+            let sourceIndexPath = coordinator.items.first?.sourceIndexPath,
+            let data = dragItem.localObject as? TestData
+      else { return }
+    
+      list.remove(at: sourceIndexPath.row)
+      list.insert(data, at: destinationIndexPath.row)
+    
+      collectionView.performBatchUpdates({
+                                             collectionView.deleteItems(at: [sourceIndexPath])
+                                             collectionView.insertItems(at: [destinationIndexPath])
+                                         })
+      coordinator.drop(dragItem, toItemAt: destinationIndexPath)
+  }
+#+END_SRC
+
 ** 2018-03-22
 
 popover를 개발할때 segue에서 reference storyboard 를 참조시키는경우 참조된 storyboard에서 view 크기를 내가 원하는 형태로 조정해놓을때 
