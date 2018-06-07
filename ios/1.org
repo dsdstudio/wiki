@@ -1,4 +1,19 @@
 * IOS 개발중 내용 정리 
+
+** <2018-06-07 목>
+
+PDFBackedView 
+
+추가적인 작업
+
+- inkAnnotation 을 구현할때 좌표 변환작업이 필요함
+
+의문사항
+- image annotation 을 custom annotation 으로 구현한경우 실제 image는 pdf에 저장되지않을것으로 보인다.
+이 데이터를 pdf file내부에 포함시키는것이 맞아보이는데..
+- 테스트결과 custom annotation 으로 그린 데이터도 잘 저장이 됨
+- text 의 경우 수정이 되야되는데 이건 좀더 검토가 필요할듯
+
 ** 2018-03-22
 
 popover를 개발할때 segue에서 reference storyboard 를 참조시키는경우 참조된 storyboard에서 view 크기를 내가 원하는 형태로 조정해놓을때 
