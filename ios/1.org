@@ -23,14 +23,17 @@ collectionview drag and drop 올바르게 이동하기
             let sourceIndexPath = coordinator.items.first?.sourceIndexPath,
             let data = dragItem.localObject as? TestData
       else { return }
-    
+
       list.remove(at: sourceIndexPath.row)
       list.insert(data, at: destinationIndexPath.row)
     
       collectionView.performBatchUpdates({
-                                             collectionView.deleteItems(at: [sourceIndexPath])
-                                             collectionView.insertItems(at: [destinationIndexPath])
+                                             collectionView.moveItem(at: sourceIndexPath, to: destinationIndexPath)
                                          })
+    
+      let minIndex = min(sourceIndexPath.row, destinationIndexPath.row)
+      let maxIndex = max(sourceIndexPath.row, destinationIndexPath.row)
+      collectionView.reloadItems(at: (minIndex...maxIndex).map{IndexPath(row: $0, section: 0)})
       coordinator.drop(dragItem, toItemAt: destinationIndexPath)
   }
 #+END_SRC
