@@ -1,0 +1,44 @@
+** Raspberry pi 3 openmediavault 배포판 
+
+
+패키지 설치 업그레이드
+#+BEGIN_SRC shell
+
+cat <<EOF >> /etc/apt/sources.list.d/openmediavault.list
+deb http://packages.openmediavault.org/public erasmus main
+# deb http://downloads.sourceforge.net/project/openmediavault/packages erasmus main
+## Uncomment the following line to add software from the proposed repository.
+# deb http://packages.openmediavault.org/public erasmus-proposed main
+# deb http://downloads.sourceforge.net/project/openmediavault/packages erasmus-proposed main
+## This software is not part of OpenMediaVault, but is offered by third-party
+## developers as a service to OpenMediaVault users.
+# deb http://packages.openmediavault.org/public erasmus partner
+# deb http://downloads.sourceforge.net/project/openmediavault/packages erasmus partner
+EOF
+
+export LANG=C
+export DEBIAN_FRONTEND=noninteractive
+export APT_LISTCHANGES_FRONTEND=none
+apt-get update
+apt-get upgrade
+apt-get --allow-unauthenticated install openmediavault-keyring
+apt-get update
+apt-get --yes --force-yes --auto-remove --show-upgraded \
+        --no-install-recommends \
+        --option Dpkg::Options::="--force-confdef" \
+        --option DPkg::Options::="--force-confold" \
+        install postfix openmediavault
+# Initialize the system and database.
+dpkg-reconfigure openmediavault
+omv-initsystem
+
+#+END_SRC
+
+초기 설치후 메모리카드 용량 전부 사용하기 
+
+#+BEGIN_SRC shell
+
+rm -f /root/.rootfs_resize
+shutdown -r now
+
+#+END_SRC
