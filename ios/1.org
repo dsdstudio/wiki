@@ -30,6 +30,22 @@ CoreBluetooth
 
 *** 할일 shape gesture recognizer implementation
 
+** <2018-06-16 Sat>
+
+Core Bluetooth - disconnect and connect
+
+[[https://www.bluetooth.com/specifications/gatt/services][기기별 UUID 리스트]]
+
+
+나의 기기자체를 BLE Server 모델로 사용하기 
+
+[[https://developer.apple.com/library/archive/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/BestPracticesForSettingUpYourIOSDeviceAsAPeripheral/BestPracticesForSettingUpYourIOSDeviceAsAPeripheral.html#//apple_ref/doc/uid/TP40013257-CH5-SW1][내기기 자체를 BLE Server로]] 
+
+결국 CBPeripheralManager.startAdvertising.. 으로 처리
+
+
+
+
 ** <2018-06-07 목>
 
 PDFBackedView 
@@ -55,7 +71,6 @@ collectionview drag and drop 올바르게 이동하기
             let data = dragItem.localObject as? TestData
       else { return }
 
-    
       list.remove(at: sourceIndexPath.row)
       list.insert(data, at: destinationIndexPath.row)
       let minIndex = min(sourceIndexPath.row, destinationIndexPath.row)
@@ -64,8 +79,6 @@ collectionview drag and drop 올바르게 이동하기
       collectionView.performBatchUpdates({
                                              collectionView.moveItem(at: sourceIndexPath, to: destinationIndexPath)
                                          })
-      collectionView.reloadItems(at: (minIndex...maxIndex).map{ IndexPath(row: $0, section:0) })
-      coordinator.drop(dragItem, toItemAt: destinationIndexPath)
   }
 #+END_SRC
 
@@ -122,7 +135,7 @@ Design document
 
 ** <2018-01-19 금> 
 
-*** 지문 / pin code 인증처리 
+*** 지문 / pin code 인증처리                            :LocalAuthentication:
 
 LocalAuthentication framework 추가 
 
@@ -148,7 +161,7 @@ LocalAuthentication framework 추가
 
 ** <2018-01-16 화>
 
-*** Core Bluetooth apple pencil detect 
+*** Core Bluetooth apple pencil detect                        :CoreBluetooth:
 
 선행작업 - framework - Core Bluetooth 미리 추가해둘것
 
