@@ -1,4 +1,34 @@
 * IOS 개발중 내용 정리 
+** <2018-06-28 목>
+
+
+CoreBluetooth 
+
+
+*** common 
+
+- Project Capabilities -> bluetooth sandbox 켜기 
+- core bluetooth - linked framework에 추가 
+
+*** as BLEServer 
+
+- 
+
+*** as BLEClient 
+
+
+
+
+** <2018-06-08 금>
+
+*** 완료 collectionview reordering dropsession 이용하지않고 올바른 방법으로 구현
+    CLOSED: [2018-06-08 금 11:37]
+    :LOGBOOK:
+    CLOCK: [2018-06-08 금 10:38]--[2018-06-08 금 11:37] =>  0:59
+    :END:
+    moveItem 으로 해결 
+
+*** 할일 shape gesture recognizer implementation
 
 ** <2018-06-07 목>
 
@@ -18,19 +48,23 @@ collectionview drag and drop 올바르게 이동하기
 
 #+BEGIN_SRC swift
   func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+      guard coordinator.destinationIndexPath.row < list.count else { return }
       guard let destinationIndexPath = coordinator.destinationIndexPath,
             let dragItem = coordinator.items.first?.dragItem,
             let sourceIndexPath = coordinator.items.first?.sourceIndexPath,
             let data = dragItem.localObject as? TestData
       else { return }
+
     
       list.remove(at: sourceIndexPath.row)
       list.insert(data, at: destinationIndexPath.row)
-    
+      let minIndex = min(sourceIndexPath.row, destinationIndexPath.row)
+      let maxIndex = max(sourceIndexPath.row, destinationIndexPath.row)
+
       collectionView.performBatchUpdates({
-                                             collectionView.deleteItems(at: [sourceIndexPath])
-                                             collectionView.insertItems(at: [destinationIndexPath])
+                                             collectionView.moveItem(at: sourceIndexPath, to: destinationIndexPath)
                                          })
+      collectionView.reloadItems(at: (minIndex...maxIndex).map{ IndexPath(row: $0, section:0) })
       coordinator.drop(dragItem, toItemAt: destinationIndexPath)
   }
 #+END_SRC
