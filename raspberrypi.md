@@ -1,4 +1,4 @@
-##Raspberry pi Rev.B + Archlinux Cookbook
+## Raspberry pi Rev.B + Archlinux Cookbook
 
 ### 메모리카드 partition resize 
 
