@@ -1,4 +1,10 @@
 * IOS 개발중 내용 정리 
+
+** <2018-07-03 Tue>
+
+https://www.raywenderlich.com/148569/unsafe-swift
+
+
 ** <2018-06-28 목>
 
 
