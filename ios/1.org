@@ -1,5 +1,26 @@
 * IOS 개발중 내용 정리 
 
+** <2018-07-04 Wed>
+
+Interval Execution In Swift
+
+#+BEGIN_SRC swift
+  let pv = UIProgressView(progressViewStyle: .default)
+  pv.tintColor = .red
+  pv.frame.origin.y = 100
+  pv.frame.size.width = 320
+  bv.contentView.addSubview(pv)
+  print(pv.frame)
+  Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { (t) in
+      let p = pv.progress
+      guard p <= 1.0 else {
+          t.invalidate()
+      }
+      pv.setProgress(p + 0.01, animated: true)
+      print("time", p)
+  }.fire()
+#+END_SRC
+
 ** <2018-07-03 Tue>
 
 https://www.raywenderlich.com/148569/unsafe-swift
