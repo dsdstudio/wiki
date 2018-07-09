@@ -1,0 +1,70 @@
+** C Playground
+
+struct && size check & allocation
+#+BEGIN_SRC C
+  #include <string.h>
+  #include <stdio.h>
+
+  struct user_t{
+    char *name;
+    unsigned int age;
+  };
+  int main() {
+    struct user_t *user;
+    user->name = "AABBCCDDEEFFGG";
+
+    printf("all_size :: %d %s\n", sizeof(user), user->name);
+    printf("user.name %d\n", sizeof(user->name));
+    printf("user.age %d\n", sizeof(user->age));
+    return 0;
+  }
+#+END_SRC
+
+#+RESULTS:
+| all_size  | :: | 8 | AABBCCDDEEFFGG |
+| user.name |  8 |   |                |
+| user.age  |  4 |   |                |
+
+#+BEGIN_SRC C
+  #include <stdio.h>
+  #include <inttypes.h>
+  unsigned int a;
+  signed int b;
+  uint8_t bytes[4] = {0, 1, 1, 1};
+  int main() {
+    printf("%d\n", sizeof(a));
+    printf("%d", sizeof(b));
+    printf("%s", &bytes);
+    return 0;
+  }
+#+END_SRC
+
+#+RESULTS:
+| 4 |
+| 4 |
+
+
+Function Pointer
+
+#+BEGIN_SRC C
+  #include <stdio.h>
+  void fn1(int v) {
+    printf("fn1:: %d\n", v);
+  }
+
+  void multiply(int v) {
+    printf("multiply:: %d", v*v);
+  }
+
+  int main() {
+    void (*fn_ptr_arr[])(int) = {fn1, multiply};
+
+    (*fn_ptr_arr[0])(1);
+    (*fn_ptr_arr[1])(10);
+    return 0;
+  }
+#+END_SRC
+
+#+RESULTS:
+| fn1::      |   1 |
+| multiply:: | 100 |
