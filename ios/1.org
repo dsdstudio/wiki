@@ -1,10 +1,54 @@
 * IOS 개발중 내용 정리 
 
+** <2018-07-09 Mon>
+
+
+String substring - substring 함수는 NSString 쪽에 있음. 
+
+#+BEGIN_SRC swift
+  import Foundation
+  let s = ("123456789" as NSString).substring(to: 4)
+  print(s)
+#+END_SRC
+
+#+RESULTS:
+: 1234
+
+String split - join
+
+#+BEGIN_SRC swift
+  import Foundation
+  let s = "123-456-789".components(separatedBy: "-").joined()
+  print(s)
+#+END_SRC
+
+#+RESULTS:
+: 123456789
+
+
+
+** <2018-07-06 Fri>
+
+[[https://stackoverflow.com/questions/28152526/how-do-i-open-phone-settings-when-a-button-is-clicked][setting 화면 띄우기]]
+
+[[https://developer.apple.com/documentation/corebluetooth/cbcentralmanageroptionshowpoweralertkey][CBCentralManager 전원꺼져있는경우 경고알려주도록 설정]]
+
+#+BEGIN_SRC swift
+  import CoreBluetooth
+  let m = CBCentralManager(delegate: nil, queue:nil, options: [CBCentralManagerOptionShowPowerAlertKey: true])
+
+#+END_SRC
+
+#+RESULTS:
+
 ** <2018-07-04 Wed>
 
 Interval Execution In Swift
 
 #+BEGIN_SRC swift
+  import UIKit
+  import Foundation
+
   let pv = UIProgressView(progressViewStyle: .default)
   pv.tintColor = .red
   pv.frame.origin.y = 100
@@ -39,11 +83,7 @@ CoreBluetooth
 
 *** as BLEServer 
 
-- 
-
 *** as BLEClient 
-
-
 
 
 ** <2018-06-08 금>
@@ -69,8 +109,6 @@ Core Bluetooth - disconnect and connect
 [[https://developer.apple.com/library/archive/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/BestPracticesForSettingUpYourIOSDeviceAsAPeripheral/BestPracticesForSettingUpYourIOSDeviceAsAPeripheral.html#//apple_ref/doc/uid/TP40013257-CH5-SW1][내기기 자체를 BLE Server로]] 
 
 결국 CBPeripheralManager.startAdvertising.. 으로 처리
-
-
 
 
 ** <2018-06-07 목>
