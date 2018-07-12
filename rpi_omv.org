@@ -42,3 +42,12 @@ rm -f /root/.rootfs_resize
 shutdown -r now
 
 #+END_SRC
+
+
+
+
+디스크 파티션 조정후 file system 만들기
+#+BEGIN_SRC shell
+fdisk /dev/sda
+mkfs.ext4 /dev/sda1
+#+END_SRC

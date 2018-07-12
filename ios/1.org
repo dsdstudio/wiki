@@ -2,7 +2,6 @@
 
 ** <2018-07-09 Mon>
 
-
 String substring - substring 함수는 NSString 쪽에 있음. 
 
 #+BEGIN_SRC swift
@@ -68,10 +67,9 @@ Interval Execution In Swift
 ** <2018-07-03 Tue>
 
 https://www.raywenderlich.com/148569/unsafe-swift
-
+custom font 추가 - https://codewithchris.com/common-mistakes-with-adding-custom-fonts-to-your-ios-app/ 
 
 ** <2018-06-28 목>
-
 
 CoreBluetooth 
 

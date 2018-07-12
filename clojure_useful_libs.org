@@ -42,6 +42,6 @@ java property 전달방식으로도 환경변수를 설정할수 있습니다.
 java -Ddatabase.url=jdbc:postgresql://localhost/prod -jar standalone.jar
 #+END_SRC
 
-주의사항으로 환경변수로 integer값을 넣어두어도 값은 string 값으로 나오므로 typecasting해서 사용해야합니다. 
+주의사항으로 환경변수로 integer값을 넣어두어도 값은 string 값으로 나오므로 typecasting해서 사용해야합니다.   
 예) http-port
 
