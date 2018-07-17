@@ -1,6 +1,20 @@
 * IOS 개발중 내용 정리 
 
 
+** <2018-07-17 Tue>
+
+viewcontroller에서 statusbar 스타일 직접 조정
+~info.plist~ ~UIViewControllerBasedStatusBarAppearance~ ~NO~ 항목 추가 
+#+BEGIN_SRC swift
+  override func viewDidAppear(_ animated: Bool) {
+      UIApplication.shared.statusBarStyle = .lightContent
+  }
+
+  override func viewWillDisappear(_ animated: Bool) {
+      UIApplication.shared.statusBarStyle = .default
+  }
+#+END_SRC
+
 ** <2018-07-13 Fri>
 
 ~Int.distance~ ~Int.advanced~ 동작 차이
