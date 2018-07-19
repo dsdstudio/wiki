@@ -1,6 +1,29 @@
 * IOS 개발중 내용 정리 
 
+
 ** <2018-07-19 Thu>
+
+DateFormat AM PM 표기시 주의할점 
+로케일을 설정하지않으면 ampm이 무시된다. 즉 아래와 같이 쓰는게 best case 
+
+#+BEGIN_SRC swift
+  import Foundation
+  let timeFormatter:DateFormatter = {
+      $0.locale = Locale(identifier: "en_US_POSIX")
+      $0.dateFormat = "h:m a"
+      $0.amSymbol = "AM"
+      $0.pmSymbol = "PM"
+      return $0
+  }(DateFormatter())
+
+  print(timeFormatter.string(from: Date()))
+
+
+#+END_SRC
+
+#+RESULTS:
+: 9:41 PM
+
 
 UISegmentedControl 에 Tint color 먹이는방법 
 각각의 세그먼트가 subview이므로 subview를 순회하며 ~tintColor~ 를 먹여줘야 적용이 된다.
