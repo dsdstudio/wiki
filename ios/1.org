@@ -1,5 +1,19 @@
 * IOS 개발중 내용 정리 
 
+** <2018-07-19 Thu>
+
+UISegmentedControl 에 Tint color 먹이는방법 
+각각의 세그먼트가 subview이므로 subview를 순회하며 ~tintColor~ 를 먹여줘야 적용이 된다.
+
+#+BEGIN_SRC swift
+  let segmentedControl = UISegmentedControl()
+
+  // add segment
+
+  for v in segmentedControl.subviews {
+      v.tintColor = .orange
+  }
+#+END_SRC
 
 ** <2018-07-17 Tue>
 
