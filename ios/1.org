@@ -1,6 +1,14 @@
 * IOS 개발중 내용 정리 
 
 
+** <2018-07-20 Fri>
+
+ios BLE기기 특정시간 이후 끊어지는 문제 
+
+[[https://forums.developer.apple.com/thread/90929][apple forum 답변]]
+- 결국 기기 펌웨어의 interval 설정을 바꾸어서 해결했다는 이야기.
+
+
 ** <2018-07-19 Thu>
 
 DateFormat AM PM 표기시 주의할점 
