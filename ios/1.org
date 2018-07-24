@@ -1,5 +1,10 @@
 * IOS 개발중 내용 정리 
 
+** <2018-07-24 Tue>
+UIMenuController 
+
+- [[https://developer.apple.com/documentation/uikit/uimenucontroller][uimenucontroller]]
+- [[https://developer.apple.com/design/human-interface-guidelines/ios/controls/edit-menus/][HIG edit-menus]]
 
 ** <2018-07-20 Fri>
 
