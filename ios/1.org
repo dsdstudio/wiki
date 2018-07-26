@@ -1,5 +1,20 @@
 * IOS 개발중 내용 정리 
 
+** <2018-07-26 Thu>
+
+ios 에서 trailing closure 자동완성 - 실제로 내가 의도하던 함수의 인자와 다른경우가 있으므로 주의하자. 
+예 RxSwift 의 ~.subscribe~ 는 ~onNext~ 와 trailing clojure onNext 인자가 다르다 
+
+#+BEGIN_SRC swift
+  Observable.just(1).subscribe { e in
+      // e is event 
+  }
+
+  Observable.just(1).subscribe(onNext: { count in
+                                   // count is Integer
+                               })
+#+END_SRC
+
 ** <2018-07-24 Tue>
 UIMenuController 
 
