@@ -11,8 +11,8 @@ ios 에서 trailing closure 자동완성 - 실제로 내가 의도하던 함수�
   }
 
   Observable.just(1).subscribe(onNext: { count in
-                                   // count is Integer
-                               })
+      // count is Integer
+  })
 #+END_SRC
 
 ** <2018-07-24 Tue>
