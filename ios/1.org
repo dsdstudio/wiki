@@ -1,5 +1,14 @@
 * IOS 개발중 내용 정리 
 
+** <2018-07-30 Mon>
+
+- 기기 이름 구하기 
+
+#+BEGIN_SRC swift
+  print(UIDevice.current.name)
+#+END_SRC
+
+
 ** <2018-07-26 Thu>
 
 ios 에서 trailing closure 자동완성 - 실제로 내가 의도하던 함수의 인자와 다른경우가 있으므로 주의하자. 
