@@ -1,0 +1,18 @@
+
+
+* spring webflux cookbook 
+
+** <2018-08-10 Fri> 
+
+spring mvc 와는 달리 ~redirect://url~ 과 같은 패턴을 대체하는녀석으로 ~ServerWebExchange~ 이 등장
+
+#+BEGIN_SRC java
+  @GetMapping("/logout")
+  public Mono<Void> logout(@CookieValue(value = "ses", required = false) String ses, ServerWebExchange exchange) throws IOException {
+      ServerHttpResponse response = exchange.getResponse();
+      response.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
+      response.getHeaders().add(HttpHeaders.LOCATION, body.getLogoutUri());
+      return response.setComplete();
+  }
+#+END_SRC
+
