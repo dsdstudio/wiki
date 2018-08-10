@@ -4,7 +4,10 @@
 
 ** <2018-08-10 Fri> 
 
-spring mvc 와는 달리 ~redirect://url~ 과 같은 패턴을 대체하는녀석으로 ~ServerWebExchange~ 이 등장
+spring mvc 와는 달리 ~redirect://url~ 과 같은 패턴을 대체하는녀석으로 ~ServerWebExchange~ 을 이용하여 redirection을 처리함 
+https://jira.spring.io/browse/SPR-15291 아직은 ~redirect:/url~ 와 같이 우아한 처리방식을 사용하는건 불가능한듯.
+
+
 
 #+BEGIN_SRC java
   @GetMapping("/logout")
