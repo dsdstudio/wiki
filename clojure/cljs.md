@@ -1,5 +1,19 @@
 ## clojurescript cookbook 
 
+### reagent hiccup id, class shorthand 
+
+```clojure 
+
+[:div {:class-name "btn btn-default"} "button"]
+
+;; class shorthand 
+[:div.btn.btn-default "button"]
+
+;; id shorthand
+[:div#submit-btn "저장"]
+
+```
+
 ### map에 접근하기에는 string이 키인 맵보다 keyword인 맵이 좀더 깔끔하다. 
 
 왜 그런지는 아래 예제를 보자 
