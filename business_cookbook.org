@@ -1,4 +1,8 @@
 
+** google docs excel
+
+i18N설정시 publish to the web 설정을 해줘야 export 가 잘됨
+
 ** 화상미팅 
 
 Google Hangout 은 초대 링크를 주는게 낫다. 
