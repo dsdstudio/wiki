@@ -1,0 +1,24 @@
+* Emacs Lisp Scratch
+
+#+BEGIN_SRC elisp
+(set 'flowers '(a b c))
+(setq counter 0)
+(setq counter (+ counter 1))
+
+(buffer-size)
+
+(point-max)
+#+END_SRC
+
+
+#+BEGIN_SRC elisp
+  (defun multiply-by-seven (number)
+    "7 을 곱한다"
+    (interactive "p")
+    (message "결과눈 %d" (* 7 number)))
+
+  (multiply-by-seven 5)
+#+END_SRC
+
+#+RESULTS:
+: 35
