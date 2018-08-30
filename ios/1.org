@@ -1,5 +1,20 @@
 * IOS 개발중 내용 정리 
 
+** <2018-08-30 Thu>
+
+swift string trimming 
+
+#+BEGIN_SRC swift
+  import Foundation
+  let s = " 공백이 있네.."
+  let trimmedString = s.trimmingCharacters(in: .whitespaces)
+  print(trimmedString)
+
+#+END_SRC
+
+#+RESULTS:
+: 공백이 있네..
+
 ** <2018-07-30 Mon>
 
 - 기기 이름 구하기 
