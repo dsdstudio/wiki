@@ -1,0 +1,4 @@
+
+** References
+
+- https://rsec.kr/?p=386 OCSP, CRL 관련
