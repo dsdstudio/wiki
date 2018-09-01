@@ -1,5 +1,72 @@
 * Java Tooling Cookbook ( gradle / maven / etc )
 
+** <2018-09-01 Sat>
+*** Gradle jOOQ Generator Task 
+
+
+#+BEGIN_SRC gradle
+  apply plugin: 'java'
+
+  repositories {
+      mavenLocal()
+      mavenCentral()
+  }
+
+  dependencies {
+      compile 'org.jooq:jooq:3.11.4'
+
+      runtime 'com.h2database:h2:1.4.177'
+      testCompile 'junit:junit:4.11'
+  }
+
+  buildscript {
+      repositories {
+          mavenLocal()
+          mavenCentral()
+      }
+
+      dependencies {
+          classpath 'org.jooq:jooq-codegen:3.11.4'
+          classpath 'com.h2database:h2:1.4.177'
+      }
+  }
+
+  task jOOQModelGen() {
+  def writer = new StringWriter()
+  new groovy.xml.MarkupBuilder(writer)
+  .configuration('xmlns': 'http://www.jooq.org/xsd/jooq-codegen-3.11.0.xsd') {
+      jdbc() {
+          driver('org.h2.Driver')
+          url('jdbc:h2:~/test-gradle')
+          user('sa')
+          password('')
+      }
+      generator() {
+          database() {
+          }
+
+          // Watch out for this caveat when using MarkupBuilder with "reserved names"
+          // - https://github.com/jOOQ/jOOQ/issues/4797
+          // - http://stackoverflow.com/a/11389034/521799
+          // - https://groups.google.com/forum/#!topic/jooq-user/wi4S9rRxk4A
+          generate([:]) {
+              pojos true
+              daos true
+          }
+          target() {
+              packageName('org.jooq.example.gradle.db')
+              directory('src/main/java')
+          }
+      }
+  }
+
+  // Run the code generator
+  // ----------------------
+  org.jooq.codegen.GenerationTool.generate(writer.toString())
+  }
+
+#+END_SRC
+
 
 ** <2018-08-24 Fri> 
 
