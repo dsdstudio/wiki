@@ -1,5 +1,22 @@
 * IOS 개발중 내용 정리 
 
+** <2019-01-15 화>
+
+app sandbox 내부에 파일 위치 app document directory 밑
+
+#+BEGIN_SRC swift
+  let fileManager = FileManager.default
+  notesDir = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("testdir")
+  do {
+      try fileManager.createDirectory(at: notesDir, withIntermediateDirectories: true, attributes: nil)
+  } catch {
+      print("create dir failed", error)
+  }
+#+END_SRC
+
+** <2018-08-31 Fri>
+
+
 ** <2018-08-30 Thu>
 
 swift string trimming 
