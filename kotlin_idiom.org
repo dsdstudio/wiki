@@ -1,6 +1,14 @@
 * 코틀린 사용하면서 괜찮았던 이디엄들 정리                     :kotlin:idiom:
 
 
+** kotlin java reflection 
+
+#+BEGIN_SRC kotlin
+session!!::class.java.getDeclaredField("username").also {
+                    it.isAccessible = true
+                    it.set(session!!, vcs.loginId)
+                }
+#+END_SRC
 ** 복잡한 조건식 -> 내부 DSL로 의도를 드러낼수있도록 조정
 #+BEGIN_SRC kotlin 
 val isDefaultConfig = (defaultConfig.deptCd == inventDTO.deptCd)
