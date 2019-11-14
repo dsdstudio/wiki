@@ -114,3 +114,9 @@ From oss.navercorp.com:NTree2/NTree2-Web
 
 $ git merge master
 ```
+
+## git history에 큰파일이 들어가있는경우 정리방법 
+
+```
+$ git gc --prune=now --aggressive
+```
