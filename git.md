@@ -125,3 +125,9 @@ $ git lfs track *.a # lfs 관리대상파일 추가
 $ git add . # lfs 관리대상 파일 추가된거 스테이징 에어리어에 추가 
 $ git commit -m "lfs 관리대상 파일 추가"
 ```
+
+## git history에 큰파일이 들어가있는경우 정리방법 
+
+```
+$ git gc --prune=now --aggressive
+```
