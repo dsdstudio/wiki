@@ -114,3 +114,14 @@ From oss.navercorp.com:NTree2/NTree2-Web
 
 $ git merge master
 ```
+
+## git lfs 적용 
+
+큰파일의 경우 git large file extension 을 이용해서 별도로 관리하자.
+
+```
+$ brew install -v git-lfs
+$ git lfs track *.a # lfs 관리대상파일 추가 
+$ git add . # lfs 관리대상 파일 추가된거 스테이징 에어리어에 추가 
+$ git commit -m "lfs 관리대상 파일 추가"
+```
