@@ -1,4 +1,58 @@
 * IOS 개발중 내용 정리 
+** <2020-03-09 월>
+
+Enum에 all case 를 표현할수 있음 
+
+#+begin_src swift
+    enum SubtitleType: String, CaseIterable {
+        case smi = "smi", srt = "srt", notFound = ""
+    }
+
+        for subtitleType in SubtitleType.allCases {
+            let fileName = "\(videoFilePath[startIndex...index])\(subtitleType)"
+            if !fm.fileExists(atPath: fileName) {
+                continue
+            }
+            return (subtitleType, fileName)
+        }
+#+end_src
+
+NSAttributedString 은 Main Thread 에서 갱신해야 적용된다. 다른쓰레드에서 적용하려는경우 메인쓰레드 자체가 blocking 됨 
+
+html 을 표현하려면 완전한 html tag 구조를 가지고 있어야 표현이 된다.
+#+begin_src swift
+extension String {
+    func html() -> NSMutableAttributedString {
+        let css = """
+p {
+font-size:20px;
+text-align:center;
+font-weight: bold;
+color: white;
+}
+"""
+        guard let d = "<html><style type=\"text/css\">\(css)</style><body><p>\(self)</p></body></html>".data(using: .utf16) else {
+            return NSMutableAttributedString()
+        }
+        do {
+            var options = [NSAttributedString.DocumentReadingOptionKey : Any]()
+            options[.documentType] = NSAttributedString.DocumentType.html
+            options[.characterEncoding] = String.Encoding.utf16.rawValue
+            options[.defaultAttributes] = [:]
+            
+            let attributedString = try NSMutableAttributedString(data: d, options: options, documentAttributes: nil)
+            return attributedString
+        } catch {
+            print("String::html error -> \(error.localizedDescription)")
+            return NSMutableAttributedString()
+        }
+    }
+    var nsRange: NSRange {
+        NSRange(self.startIndex..., in: self)
+    }
+}
+
+#+end_src
 
 ** <2019-01-15 화>
 
