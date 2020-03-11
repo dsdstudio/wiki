@@ -1,4 +1,10 @@
 * IOS 개발중 내용 정리 
+
+** <2020-03-11 수>
+
+xcode swiftui 사용시 갑자기 자동완성이 되지않는경우 
+
+https://stackoverflow.com/questions/46504286/xcode-9-autocomplete-not-working-100-partially-working 
 ** <2020-03-09 월>
 
 Enum에 all case 를 표현할수 있음 
