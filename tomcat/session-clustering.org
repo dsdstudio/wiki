@@ -1,0 +1,34 @@
+
+* Tomcat Session Clustering 
+
+
+** 1. 서버 설정 - 멀티캐스팅 사용할수 있도록 
+
+   #+begin_src shell
+   $ sudo route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0
+   #+end_src
+
+** 1.1 tomcat conf/context.xml 세션 쿠키도메인, path 설정 
+
+context.xml 에 최상위 도메인 명시, path도 root로
+  #+begin_src xml
+  <Context sessionCookieDomain="aaa.com" sessionCookiePath="/">
+  </Context>
+  #+end_src
+
+** 1.2 Application의 web.xml 에 분산세션 가능여부 필드 추가 
+
+web.xml
+#+begin_src xml
+<distributable />
+#+end_src
+
+** 1.3 Application에 session 객체로 넣는애들은 모두 Serializable interface implement
+
+
+*** References
+
+- [[http://tomcat.apache.org/tomcat-8.5-doc/config/cluster.html][tomcat cluster object]]
+- [[http://tomcat.apache.org/tomcat-8.5-doc/cluster-howto.html][tomcat cluster how-to]]
+- [[https://tomcat.apache.org/tomcat-8.0-doc/config/context.html][tomcat context session domain setting]]
+
