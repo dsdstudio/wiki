@@ -1,6 +1,20 @@
 
 ## JVM 
 
+### jConsole Remote Debugging 
+
+```java 
+java -Dcom.sun.management.jmxremote.port=9999 \
+     -Dcom.sun.management.jmxremote.authenticate=false \
+     -Dcom.sun.management.jmxremote.ssl=false \
+     com.example.Main
+```
+
+####  Reference
+
+- https://www.lesstif.com/java/apache-tomcat-jmx-monitoring-20776824.html
+- https://docs.oracle.com/javase/tutorial/jmx/remote/jconsole.html
+### OOM HeapDump
 서버가 OutofMemoryError로 죽었을때 Heapdump를 할지 설정하는 옵션이다. 실제 was 인스턴스가 죽었을때 이 dump파일이 문제를 찾는 결정적인 역할을 한다. 
 
 	-XX:-HeapDumpOnOutOfMemoryError
