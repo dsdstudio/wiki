@@ -1,0 +1,11 @@
+
+
+* <2020-11-04 수>
+
+  Meteor.{} interface로 Client / Server 쪽 동일한 인터페이스로 통신하는 구조
+  일반적인 rest api 를 만들어서 사용하려면 http package or webapp package 를 이용해서 endpoint를 만들어야함
+
+  
+  meteor accounts-github callback url 설정시 주의사항.
+  설정에서 명시적으로 설정해도 callbackurl은 아래와 같은 규칙으로 고정되어있음
+  github redirecturl -> _oauth/github/**
