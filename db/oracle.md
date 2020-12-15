@@ -19,3 +19,8 @@ grant CREATE TABLE to {USER_NAME} WITH ADMIN OPTION
 alter user PLMS default tablespace TS_PLMS quota unlimited on TS_PLMS;
 
 ```
+
+
+### References 
+
+- https://pakss328.medium.com/docker-oracle-%EA%B8%B0%EB%B3%B8-%EC%85%8B%ED%8C%85-a09bf869cb59
