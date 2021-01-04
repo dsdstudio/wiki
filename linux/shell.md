@@ -14,3 +14,12 @@ $ mkdir -p modern-cljs/{src/cljs/modern_cljs,html}
 # 일반적으로 bash에서는 set -o vi 인데 tcsh의 경우 bindkey를 사용한다.
  $ bindkey -v 
 ```
+
+## `-` dash escaping 
+
+
+```
+chmod +x -- -.jpg
+```
+
+https://superuser.com/questions/528162/how-to-escape-in-bash
