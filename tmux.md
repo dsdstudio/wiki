@@ -69,6 +69,11 @@ Tmux 연결 끊기
 $ pip install --user psutil powerline-status
 ```
 
+### ssh session timeout 시 freezing 되는 문제 해결 
+
+- `Enter`, `~`, `.` 
+  - https://superuser.com/questions/98562/way-to-avoid-ssh-connection-timeout-freezing-of-gnome-terminal
+
 ### mouse on 되어있는경우 drag-copy가 안되는데 이걸 명시적으로 조정하는 방법 
 
 - `Ctrl + B`로 tmux command 진입 
